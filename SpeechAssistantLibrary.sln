@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechAssistant", "SpeechAssistant\SpeechAssistant.csproj", "{701947CF-8157-476C-A119-E3CBF1324F3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechPlugInTestLibrary", "SpeechPlugInTestLibrary\SpeechPlugInTestLibrary.csproj", "{2110F33A-2AAE-41D9-B41F-D55F1F215651}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{701947CF-8157-476C-A119-E3CBF1324F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701947CF-8157-476C-A119-E3CBF1324F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701947CF-8157-476C-A119-E3CBF1324F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701947CF-8157-476C-A119-E3CBF1324F3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2110F33A-2AAE-41D9-B41F-D55F1F215651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2110F33A-2AAE-41D9-B41F-D55F1F215651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2110F33A-2AAE-41D9-B41F-D55F1F215651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2110F33A-2AAE-41D9-B41F-D55F1F215651}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E988443D-D9F0-4481-9FB4-A26A3F8CD5BD}
+	EndGlobalSection
+EndGlobal

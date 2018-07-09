@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SpeechAssistant;
 using System.Windows.Forms;
+using SpeechAssistant;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
 using System.Speech.Recognition;
@@ -30,7 +30,7 @@ namespace SpeechPlugInTestLibrary
             MessageBox.Show("successful test");
         }
 
-        protected override void defineGommands(string initWord)
+        protected override void defineCommands(string initWord)
         {
             addCommand("run test");
 

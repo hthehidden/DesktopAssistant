@@ -23,7 +23,7 @@ namespace SpeechAssistant
         /// <summary>
         /// grammar created by the commands from loaded in phrase commands
         /// </summary>
-        protected Grammar  basicGrammar { get; set; }
+        protected Grammar basicGrammar { get; set; }
 
         /// <summary>
         /// grammars provided by loaded in phrase commands
@@ -43,13 +43,14 @@ namespace SpeechAssistant
         /// <param name="phraseCommandInput"></param>
         public void addPhraseCommand(PhraseCommand phraseCommandInput)
         {
-            foreach(string command in phraseCommandInput.commandPhrases)
-            {
-                if(!phraseCommands.ContainsKey(command))
+            if(phraseCommandInput.commandPhrases != null)
+                foreach(string command in phraseCommandInput.commandPhrases)
                 {
-                    phraseCommands.Add(command, phraseCommandInput);
+                    if(!phraseCommands.ContainsKey(command))
+                    {
+                        phraseCommands.Add(command, phraseCommandInput);
+                    }
                 }
-            }
             if (phraseCommandInput.grammar != null) grammars.Add(phraseCommandInput.grammar,phraseCommandInput);
         }
 
@@ -89,12 +90,15 @@ namespace SpeechAssistant
         /// <param name="speechWrapper"></param>
         public void loadDictionaryGrammar(SpeechWrapper speechWrapper)
         {
-            Choices dicChoices = new Choices(phraseCommands.Keys.ToArray());
-            GrammarBuilder gBuilder = new GrammarBuilder();
-            gBuilder.Append(dicChoices);
-            basicGrammar = new Grammar(gBuilder);
-            speechWrapper.loadGrammar(basicGrammar);
-            foreach(Grammar gram in grammars.Keys)
+            if (phraseCommands.Count > 0)
+            {
+                Choices dicChoices = new Choices(phraseCommands.Keys.ToArray());
+                GrammarBuilder gBuilder = new GrammarBuilder();
+                gBuilder.Append(dicChoices);
+                basicGrammar = new Grammar(gBuilder);
+                speechWrapper.loadGrammar(basicGrammar);
+            }
+            foreach (Grammar gram in grammars.Keys)
             {
                 speechWrapper.loadGrammar(gram);
             }
@@ -125,7 +129,7 @@ namespace SpeechAssistant
         public PhraseCommand create(string initWord)
         {
             commandPhrases = new List<string>();
-            defineGommands(initWord);
+            defineCommands(initWord);
             return this;
         }
 
@@ -139,7 +143,7 @@ namespace SpeechAssistant
         /// <summary>
         /// define the commands that will trigger the commandProcess method here, including the custom grammar
         /// </summary>
-        protected abstract void defineGommands(string initWord);
+        protected abstract void defineCommands(string initWord);
 
         /// <summary>
         /// method to make it easier to add commands to the phrase command list
@@ -156,4 +160,6 @@ namespace SpeechAssistant
         /// <param name="commandInput"></param>
         public abstract void commandProcess(string commandInput);
     }
+
+
 }

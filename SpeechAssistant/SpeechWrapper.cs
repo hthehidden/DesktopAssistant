@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Speech.Recognition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
+
+
 namespace SpeechAssistant
 {
 
@@ -19,6 +21,7 @@ namespace SpeechAssistant
         /// the minimum confidence to recognize speech
         /// </summary>
         private float minimumConfidence { get; set; }
+
         /// <summary>
         /// a word that is used to sperate a command from normal speech, i.e. 'Alexa' for amazon echo
         /// </summary>
@@ -34,7 +37,7 @@ namespace SpeechAssistant
         [ImportMany(typeof(SpeechControl))]
         private List<SpeechControl> speechControls { get; set; }
 
-        public SpeechWrapper(string initWord,float minConfidence)
+        public SpeechWrapper(string initWord, float minConfidence = 0)
         {
             this.minimumConfidence = minConfidence;
             this.initWord = initWord;
@@ -96,6 +99,7 @@ namespace SpeechAssistant
                 control.loadDictionaryGrammar(this);
             }
         }
+
 
         /// <summary>
         /// unsubscribe from speech recognized event

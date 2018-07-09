@@ -12,20 +12,21 @@ namespace SpeechAssistant
     public class Assistant
     {
         public string userName { get; private set; }
-
+        public DataManager data { get; set; }
         /// <summary>
         /// assistant name for commands in the recognizer, acts as the initword
         /// </summary>
         public string assistantName { get; private set; }
         public SpeechWrapper recognizer { get; private set; }
         
-        public Assistant(string userName, string assistantName,string pluginDir,float confidence)
+        public Assistant(string userName, string assistantName,string pluginDir,float confidence = 0)
         {
             this.userName = userName;
             this.assistantName = assistantName;
             recognizer = new SpeechWrapper(assistantName,confidence);
             recognizer.getPlugins(pluginDir);
             recognizer.beginRecognition();
+            
         }
     }
 }
